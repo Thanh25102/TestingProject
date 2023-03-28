@@ -3,24 +3,29 @@ package org.nhom5;
 import org.nhom5.gui.MainGUI;
 
 public class Main {
-    static class Triangle{
-        String type;
-        public Triangle(String type){
+
+    public static class Triangle {
+        public org.nhom5.Triangle type;
+
+        public Triangle(org.nhom5.Triangle type) {
             this.type = type;
         }
     }
 
-    private static Triangle triangle(Long a,Long b,Long c){
-        if(a + b <= c || a + c <= b ||  b + c <= a)
-            throw new IllegalArgumentException("a and b must be");
+
+    public static Triangle triangle(Long a, Long b, Long c) {
+        if (a + b <= c || a + c <= b || b + c <= a)
+            throw new IllegalArgumentException("Ba canh a, b, c khong phai la ba canh cua mot tam giac");
+        else if (a * a + b * b == c * c || a * c + c * c == b * b || b * b + c * c == a * c)
+            return new Triangle(org.nhom5.Triangle.Vuong);
+        else if(a==b && b==c)
+            return new Triangle(org.nhom5.Triangle.Deu);
+        if (a == b || a == c || b == c)
+            return new Triangle(org.nhom5.Triangle.Can);
         else
-            if(a * a + b * b == c * c || a * c + c * c == b * b || b * b + c * c == a * c)
-                return new Triangle("Vuong");
-            if(a == b || a == c || b == c)
-                return new Triangle("Can");
-            else
-                return new Triangle("Thuong");
+            return new Triangle(org.nhom5.Triangle.Thuong);
     }
+
     public static void main(String[] args) {
         MainGUI mainGui = new MainGUI();
         mainGui.setVisible(true);
