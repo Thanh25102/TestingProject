@@ -1,5 +1,7 @@
 package org.nhom5;
 
+import org.nhom5.gui.MainGUI;
+
 public class Main {
     static class Triangle{
         String type;
@@ -20,5 +22,7 @@ public class Main {
                 return new Triangle("Thuong");
     }
     public static void main(String[] args) {
+        MainGUI mainGui = new MainGUI();
+        mainGui.setVisible(true);
     }
 }
